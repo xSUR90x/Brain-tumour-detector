@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Bootstrap CSS (Light theme adjustments) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional custom styling for light theme */
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+        }
+        .container {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #dee2e6; /* Light grey border */
+            border-radius: 5px;
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+        .img-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="result mt-4">
+            <h2 class="mb-3">Result</h2>
+            <p class="lead">Prediction: {{ prediction }}</p>
+        </div>
+        <div class="img-container">
+            <div class="col-md-2">
+                <img src="data:image/jpeg;base64, {{ img_data }}" alt="MRI Image" class="img-fluid">
+            </div>
+            <!-- Repeat for other images if needed -->
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Go back</a>
+    </div>
+</body>
+</html>

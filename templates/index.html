@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detector</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional custom styling for light theme */
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+        }
+        .container {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mt-4 mb-4">Brain Tumor Detector</h1>
+        <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="form-group">
+                <label for="file">Upload an MRI image :</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
